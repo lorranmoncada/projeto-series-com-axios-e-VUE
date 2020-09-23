@@ -2,11 +2,21 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import vuetify from "./plugins/vuetify";
+import "roboto-fontface/css/roboto/roboto-fontface.css";
+import "material-design-icons-iconfont/dist/material-design-icons.css";
+import axios from "axios";
+import { teste, req } from "../src/helpers/interception.js";
 
 Vue.config.productionTip = false;
+axios.defaults.baseURL = "https://guarded-headland-11685.herokuapp.com";
+teste();
+req();
+/* interceptor(); */
 
 new Vue({
   router,
   store,
-  render: h => h(App)
+  vuetify,
+  render: (h) => h(App),
 }).$mount("#app");
